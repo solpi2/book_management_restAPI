@@ -5,6 +5,7 @@ import com.jinn.book_management.model.Author;
 import com.jinn.book_management.service.AuthorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +32,12 @@ public class AuthorController {
         author.setName(authorDto.getName());
 
         return authorService.create(author);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        authorService.delete(id);
+
+        return ResponseEntity.noContent().build();
     }
 }

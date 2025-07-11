@@ -27,4 +27,8 @@ public class AuthorRepository {
 
         return author;
     }
+
+    public void delete(Integer id) {
+        store.remove(id);
+    }
 }
