@@ -23,6 +23,13 @@ public class AuthorService {
         return authorRepository.save(author);
     }
 
+    public Author update(Integer id, Author updatedAuthor) {
+        getById(id);
+        updatedAuthor.setId(id);
+
+        return authorRepository.save(updatedAuthor);
+    }
+
     public void delete(Integer id) {
         authorRepository.delete(id);
     }
